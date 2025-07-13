@@ -7,6 +7,7 @@ public class Order {
     private int orderId;
     private String clientName;
     private String assignedDriver;
+    private String assignedVehicle;
     private String origin;
     private String destination;
     private String deliveryStatus;
@@ -43,6 +44,7 @@ public class Order {
         this.originLongitude = originLongitude;
         this.destinationLatitude = destinationLatitude;
         this.destinationLongitude = destinationLongitude;
+
         this.currentLatitude = originLatitude;
         this.currentLongitude = originLongitude;
     }
@@ -63,6 +65,14 @@ public class Order {
 
     public void setAssignedDriver(String assignedDriver) {
         this.assignedDriver = assignedDriver;
+    }
+
+    public String getAssignedVehicle() {
+        return assignedVehicle;
+    }
+
+    public void setAssignedVehicle(String assignedVehicle) {
+        this.assignedVehicle = assignedVehicle;
     }
 
     public String getOrigin() {
@@ -141,6 +151,10 @@ public class Order {
         this.assignedDriver = driverName;
     }
 
+    public void assignToVehicle(String vehicleId) {
+        this.assignedVehicle = vehicleId;
+    }
+
     public void updateDeliveryStatus(String newStatus) {
         this.deliveryStatus = newStatus;
     }
@@ -150,6 +164,7 @@ public class Order {
         return "Order ID: " + orderId +
                "\nClient: " + clientName +
                "\nDriver: " + (assignedDriver != null ? assignedDriver : "Unassigned") +
+               "\nVehicle: " + (assignedVehicle != null ? assignedVehicle : "Unassigned") +
                "\nOrigin: " + origin + " (" + originLatitude + ", " + originLongitude + ")" +
                "\nDestination: " + destination + " (" + destinationLatitude + ", " + destinationLongitude + ")" +
                "\nCurrent Location: (" + currentLatitude + ", " + currentLongitude + ")" +
